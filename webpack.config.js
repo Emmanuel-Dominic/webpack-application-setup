@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -7,7 +8,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js',
+        filename: '[name][contenthash].js',
     },
     module: {
         rules: [
@@ -16,5 +17,12 @@ module.exports = {
                 use: ['style-loader', 'css-loader', 'sass-loader'],
             }
         ]
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: 'UserProfile',
+            filename: 'index.html',
+            template: 'src/template.html',
+        }),
+    ]
 }
