@@ -5,4 +5,7 @@ import mine from './assets/mine.png';
 const profileImg = document.getElementById('img-profile');
 profileImg.src = mine;
 
-console.log(usersList());
+const profileBtn = document.getElementById('profileBtn');
+profileBtn.addEventListener('click', usersList)
+
+usersList();
